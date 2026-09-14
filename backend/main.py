@@ -78,9 +78,16 @@ app = FastAPI(
 
 # Middleware stack (order matters)
 app.add_middleware(RateLimitMiddleware)
+
+# Browsers do not allow `Access-Control-Allow-Origin: *` together with
+# credentials. In allow-all mode, match every origin and let Starlette echo
+# the request's origin instead. This keeps browser preflight and credentialed
+# requests working for any frontend origin.
+cors_allow_all = settings.cors_allow_all
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[] if cors_allow_all else settings.origins,
+    allow_origin_regex=r".*" if cors_allow_all else None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

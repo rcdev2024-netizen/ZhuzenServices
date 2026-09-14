@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     app_env: str = "development"
     debug: bool = False
     api_prefix: str = "/api"
+    cors_allow_all: bool = True
     cors_origins: str = "*"
 
     supabase_url: str = ""

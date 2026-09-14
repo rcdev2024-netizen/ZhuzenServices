@@ -24,7 +24,8 @@ directory.
 | `SUPABASE_SERVICE_ROLE_KEY` | Yes | Server-only Supabase key used by FastAPI to access the tables. Never expose this to frontend code. |
 | `JWT_SECRET` | Yes | Long random secret used to sign access and refresh tokens. Use a different value per environment. |
 | `APP_ENV` | Yes | Use `production` on the production Vercel environment. |
-| `CORS_ORIGINS` | Yes | Comma-separated frontend origins, such as `https://app.example.com`. |
+| `CORS_ALLOW_ALL` | Optional | Defaults to `true`, allowing every browser origin. Set to `false` to enforce `CORS_ORIGINS`. |
+| `CORS_ORIGINS` | Used when `CORS_ALLOW_ALL=false` | Comma-separated frontend origins, such as `https://app.example.com`. |
 | `DEBUG` | Recommended | `false` in production. When enabled outside production, password reset responses include a development token. |
 | `ACCESS_TOKEN_MINUTES` | Optional | Access-token lifetime, default `30`. |
 | `REFRESH_TOKEN_DAYS` | Optional | Refresh-token lifetime, default `30`. |
@@ -41,3 +42,20 @@ Supabase client configuration for a public consumer.
 3. Add the environment variables above to Vercel.
 4. Deploy from the repository root. Vercel will use `api/index.py` through `vercel.json`.
 5. Verify `/api/healthz`, then create the first account with `POST /api/auth/register`.
+
+## Fixing the current browser CORS error
+
+No environment-variable change is required for the allow-all behavior after
+deploying this code because `CORS_ALLOW_ALL` defaults to `true`. If the Vercel
+project already has `CORS_ALLOW_ALL` set to `false`, either delete that
+variable or set it to `true` in the Production environment, then redeploy.
+
+If you prefer to restrict the API later, set:
+
+```text
+CORS_ALLOW_ALL=false
+CORS_ORIGINS=https://servoces-ops-chi.vercel.app
+```
+
+The value must be the exact frontend origin: scheme plus hostname, without a
+trailing slash or a path.
