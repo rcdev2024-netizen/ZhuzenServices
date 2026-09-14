@@ -27,8 +27,10 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.origins,
-    allow_credentials=settings.cors_origins.strip() != "*",
+    allow_origins=[
+        "https://servoces-ops-chi.vercel.app",
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
