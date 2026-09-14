@@ -8,11 +8,10 @@ class Settings(BaseSettings):
     app_env: str = "development"
     debug: bool = False
     api_prefix: str = "/api"
-    cors_origins: str = "*"
+    cors_origins: str = "https://servoces-ops-chi.vercel.app"
 
     supabase_url: str = ""
     supabase_service_role_key: str = ""
-    supabase_anon_key: str = ""
 
     jwt_secret: str = ""
     jwt_algorithm: str = "HS256"
@@ -29,12 +28,14 @@ class Settings(BaseSettings):
 
     @property
     def origins(self) -> list[str]:
+        """Parse CORS origins from comma-separated string."""
         if self.cors_origins.strip() == "*":
             return ["*"]
         return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
     @property
     def supabase_configured(self) -> bool:
+        """Check if Supabase is properly configured."""
         return bool(self.supabase_url and self.supabase_service_role_key)
 
 

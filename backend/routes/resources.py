@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from backend.db import RepositoryError, SupabaseRepository
 from backend.dependencies import current_claims, get_repository
 from backend.schemas import ActionPayload, ResourcePayload
+from backend.security import hash_password
 
 router = APIRouter(tags=["Operations"])
 
@@ -169,8 +170,6 @@ async def create_resource(
         password = record.pop("password", None)
         if not password:
             raise HTTPException(status_code=400, detail="A password is required when creating a user.")
-        from backend.security import hash_password
-
         record["password_hash"] = hash_password(password)
     try:
         return _safe_row(resource, await repo.insert(table, record))
@@ -216,8 +215,6 @@ async def update_resource(
         password = update.pop("password", None)
         update.pop("password_hash", None)
         if password:
-            from backend.security import hash_password
-
             update["password_hash"] = hash_password(password)
     try:
         return _safe_row(resource, await repo.update(table, record_id, update))
