@@ -2,6 +2,22 @@
 
 Add these variables in the Vercel project settings for **Development, Preview, and Production** as appropriate:
 
+## Vercel project settings
+
+Because this repository is a workspace, configure the Vercel project with:
+
+- **Root Directory:** repository root (`.`), not `artifacts/api-server`
+- **Framework Preset:** Other
+- **Build Command:** leave the Vercel default, or use `python -m compileall -q backend api`
+- **Output Directory:** leave empty
+- **Install Command:** leave the default
+
+The root directory is important. The deployable Python function is
+`api/index.py`, and the Vercel configuration is `vercel.json`, both at the
+repository root. If Vercel is pointed at `artifacts/api-server`, it will run
+that package's workspace build and then incorrectly look for a static `public`
+directory.
+
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `SUPABASE_URL` | Yes | The project URL, for example `https://your-project.supabase.co` |

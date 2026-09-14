@@ -14,6 +14,9 @@ __pycache__/
 *.py[cod]
 .pythonlibs/
 .venv/
+.env
+.env.*
+!.env.example
 
 # IDEs and editors
 /.idea

@@ -1,1 +1,2 @@
 - [Python workflow working directory](workflow-python-cwd.md) — managed API scripts start in the artifact directory, so root-level backend imports need an explicit directory change.
+- [Python lockfile project name](uv-lock-project-name.md) — regenerate `uv.lock` after changing the top-level project name before deploying with Vercel.
