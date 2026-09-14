@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     app_env: str = "development"
     debug: bool = False
     api_prefix: str = "/api"
-    cors_origins: str = "https://servoces-ops-chi.vercel.app"
+    cors_origins: str = "https://servoces-ops-chi.vercel.app,http://localhost:3000,http://localhost:5173"
 
     supabase_url: str = ""
     supabase_service_role_key: str = ""
