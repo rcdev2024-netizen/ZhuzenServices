@@ -1,0 +1,1 @@
+- [Python workflow working directory](workflow-python-cwd.md) — managed API scripts start in the artifact directory, so root-level backend imports need an explicit directory change.

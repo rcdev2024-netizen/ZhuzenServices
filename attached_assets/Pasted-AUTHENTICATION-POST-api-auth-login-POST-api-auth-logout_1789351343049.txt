@@ -1,0 +1,306 @@
+AUTHENTICATION
+POST   /api/auth/login
+POST   /api/auth/logout
+POST   /api/auth/refresh-token
+POST   /api/auth/forgot-password
+POST   /api/auth/reset-password
+
+USERS
+GET    /api/users
+GET    /api/users/{id}
+POST   /api/users
+PUT    /api/users/{id}
+DELETE /api/users/{id}
+
+ROLES
+GET    /api/roles
+GET    /api/roles/{id}
+POST   /api/roles
+PUT    /api/roles/{id}
+DELETE /api/roles/{id}
+
+CUSTOMERS
+GET    /api/customers
+GET    /api/customers/{id}
+POST   /api/customers
+PUT    /api/customers/{id}
+DELETE /api/customers/{id}
+GET    /api/customers/{id}/service-history
+GET    /api/customers/{id}/job-orders
+GET    /api/customers/{id}/invoices
+
+ASSETS / EQUIPMENT
+GET    /api/assets
+GET    /api/assets/{id}
+POST   /api/assets
+PUT    /api/assets/{id}
+DELETE /api/assets/{id}
+GET    /api/assets/{id}/service-history
+GET    /api/assets/{id}/warranty
+
+SERVICE REQUESTS
+GET    /api/service-requests
+GET    /api/service-requests/{id}
+POST   /api/service-requests
+PUT    /api/service-requests/{id}
+DELETE /api/service-requests/{id}
+POST   /api/service-requests/{id}/assign
+POST   /api/service-requests/{id}/cancel
+POST   /api/service-requests/{id}/close
+
+JOB ORDERS
+GET    /api/job-orders
+GET    /api/job-orders/{id}
+POST   /api/job-orders
+PUT    /api/job-orders/{id}
+DELETE /api/job-orders/{id}
+POST   /api/job-orders/{id}/start
+POST   /api/job-orders/{id}/complete
+POST   /api/job-orders/{id}/close
+GET    /api/job-orders/{id}/timeline
+GET    /api/job-orders/{id}/activities
+
+WARRANTY
+GET    /api/warranties
+GET    /api/warranties/{id}
+POST   /api/warranties
+PUT    /api/warranties/{id}
+POST   /api/warranties/check
+GET    /api/assets/{id}/warranty-status
+
+DIAGNOSTICS
+GET    /api/diagnostics
+GET    /api/diagnostics/{id}
+POST   /api/diagnostics
+PUT    /api/diagnostics/{id}
+POST   /api/diagnostics/{id}/approve
+POST   /api/diagnostics/{id}/reject
+
+QUOTATIONS
+GET    /api/quotations
+GET    /api/quotations/{id}
+POST   /api/quotations
+PUT    /api/quotations/{id}
+POST   /api/quotations/{id}/submit
+POST   /api/quotations/{id}/approve
+POST   /api/quotations/{id}/reject
+GET    /api/quotations/{id}/pdf
+
+PARTS INVENTORY
+GET    /api/parts
+GET    /api/parts/{id}
+POST   /api/parts
+PUT    /api/parts/{id}
+DELETE /api/parts/{id}
+GET    /api/parts/stock
+GET    /api/parts/low-stock
+POST   /api/parts/stock-in
+POST   /api/parts/stock-out
+POST   /api/parts/adjustment
+
+PURCHASE ORDERS
+GET    /api/purchase-orders
+GET    /api/purchase-orders/{id}
+POST   /api/purchase-orders
+PUT    /api/purchase-orders/{id}
+POST   /api/purchase-orders/{id}/approve
+POST   /api/purchase-orders/{id}/receive
+POST   /api/purchase-orders/{id}/cancel
+
+SUPPLIERS
+GET    /api/suppliers
+GET    /api/suppliers/{id}
+POST   /api/suppliers
+PUT    /api/suppliers/{id}
+DELETE /api/suppliers/{id}
+
+REPAIRS
+GET    /api/repairs
+GET    /api/repairs/{id}
+POST   /api/repairs
+PUT    /api/repairs/{id}
+POST   /api/repairs/{id}/start
+POST   /api/repairs/{id}/pause
+POST   /api/repairs/{id}/complete
+
+QUALITY CONTROL
+GET    /api/qc-checklists
+POST   /api/qc-checklists
+POST   /api/qc/{id}/pass
+POST   /api/qc/{id}/fail
+
+CUSTOMER ACCEPTANCE
+POST   /api/job-orders/{id}/customer-signoff
+GET    /api/customer-signatures/{id}
+
+PROJECTS
+GET    /api/projects
+GET    /api/projects/{id}
+POST   /api/projects
+PUT    /api/projects/{id}
+DELETE /api/projects/{id}
+POST   /api/projects/{id}/close
+
+SITE SURVEYS
+GET    /api/site-surveys
+GET    /api/site-surveys/{id}
+POST   /api/site-surveys
+PUT    /api/site-surveys/{id}
+POST   /api/site-surveys/{id}/submit
+
+MATERIAL PREPARATION
+GET    /api/material-preparations
+GET    /api/material-preparations/{id}
+POST   /api/material-preparations
+PUT    /api/material-preparations/{id}
+
+TECHNICIANS
+GET    /api/technicians
+GET    /api/technicians/{id}
+POST   /api/technicians
+PUT    /api/technicians/{id}
+DELETE /api/technicians/{id}
+
+TECHNICIAN ASSIGNMENTS
+GET    /api/assignments
+GET    /api/assignments/{id}
+POST   /api/assignments
+PUT    /api/assignments/{id}
+DELETE /api/assignments/{id}
+GET    /api/technicians/availability
+GET    /api/technicians/workload
+
+INSTALLATIONS
+GET    /api/installations
+GET    /api/installations/{id}
+POST   /api/installations
+PUT    /api/installations/{id}
+POST   /api/installations/{id}/start
+POST   /api/installations/{id}/complete
+
+TESTING & COMMISSIONING
+GET    /api/commissioning
+GET    /api/commissioning/{id}
+POST   /api/commissioning
+PUT    /api/commissioning/{id}
+POST   /api/commissioning/{id}/approve
+POST   /api/commissioning/{id}/fail
+
+PUNCH LISTS
+GET    /api/punch-lists
+GET    /api/punch-lists/{id}
+POST   /api/punch-lists
+PUT    /api/punch-lists/{id}
+POST   /api/punch-lists/{id}/resolve
+
+SERVICE PARTNERS
+GET    /api/service-partners
+GET    /api/service-partners/{id}
+POST   /api/service-partners
+PUT    /api/service-partners/{id}
+DELETE /api/service-partners/{id}
+
+PARTNER REQUESTS
+GET    /api/partner-requests
+GET    /api/partner-requests/{id}
+POST   /api/partner-requests
+PUT    /api/partner-requests/{id}
+POST   /api/partner-requests/{id}/approve
+POST   /api/partner-requests/{id}/assign
+
+SCHEDULES
+GET    /api/schedules
+GET    /api/schedules/{id}
+POST   /api/schedules
+PUT    /api/schedules/{id}
+DELETE /api/schedules/{id}
+GET    /api/calendar
+
+SERVICE REPORTS
+GET    /api/service-reports
+GET    /api/service-reports/{id}
+POST   /api/service-reports
+PUT    /api/service-reports/{id}
+DELETE /api/service-reports/{id}
+GET    /api/service-reports/{id}/pdf
+
+FILE ATTACHMENTS
+POST   /api/uploads
+GET    /api/attachments/{id}
+DELETE /api/attachments/{id}
+POST   /api/job-orders/{id}/photos
+POST   /api/projects/{id}/photos
+POST   /api/service-reports/{id}/attachments
+
+BILLING
+GET    /api/invoices
+GET    /api/invoices/{id}
+POST   /api/invoices
+PUT    /api/invoices/{id}
+DELETE /api/invoices/{id}
+POST   /api/invoices/{id}/send
+POST   /api/invoices/{id}/void
+GET    /api/invoices/{id}/pdf
+
+PAYMENTS
+GET    /api/payments
+GET    /api/payments/{id}
+POST   /api/payments
+PUT    /api/payments/{id}
+POST   /api/payments/{id}/confirm
+
+SERVICE INCOME
+GET    /api/service-income
+GET    /api/service-income/summary
+GET    /api/service-income/monthly
+GET    /api/service-income/by-type
+
+INCENTIVES
+GET    /api/incentives
+GET    /api/incentives/{id}
+POST   /api/incentives/compute
+POST   /api/incentives/generate
+GET    /api/incentives/technician/{id}
+
+CUSTOMER FEEDBACK
+GET    /api/customer-feedback
+POST   /api/customer-feedback
+GET    /api/customer-feedback/{id}
+
+PERFORMANCE
+GET    /api/performance/dashboard
+GET    /api/performance/technicians
+GET    /api/performance/technicians/{id}
+GET    /api/performance/customer-ratings
+GET    /api/performance/on-time-completion
+GET    /api/performance/repeat-callbacks
+GET    /api/performance/warranty-returns
+GET    /api/performance/income-generated
+
+DASHBOARD
+GET    /api/dashboard/overview
+GET    /api/dashboard/jobs
+GET    /api/dashboard/projects
+GET    /api/dashboard/revenue
+GET    /api/dashboard/incentives
+GET    /api/dashboard/performance
+
+REPORTS
+GET    /api/reports/service-income
+GET    /api/reports/job-orders
+GET    /api/reports/projects
+GET    /api/reports/inventory
+GET    /api/reports/technician-performance
+GET    /api/reports/incentives
+GET    /api/reports/customer-feedback
+GET    /api/reports/export/excel
+GET    /api/reports/export/pdf
+
+
+
+Create a BE solution:use Python Fast API.
+Create table scripts to be run in supabase (folder it)
+this will be deployed in vercel. 
+let me know what we need to setup in environment variables in vercel.
+
+
