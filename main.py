@@ -27,16 +27,15 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    # The frontend is deployed separately from this API. Keep the middleware
-    # enabled for browser compatibility, but reflect any requesting origin so
-    # the API does not depend on a CORS_ORIGINS deployment variable.
-    allow_origins=[],
-    allow_origin_regex=r".*",
+    allow_origins=[
+        "https://servoces-ops-chi.vercel.app",
+        "http://localhost:5173",
+        "http://localhost:3000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.get("/api/healthz", tags=["System"])
 async def health() -> JSONResponse:
